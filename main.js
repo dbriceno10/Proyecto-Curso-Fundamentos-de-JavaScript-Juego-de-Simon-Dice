@@ -1,20 +1,23 @@
-const celeste = document.getElementById('celeste')
-const violeta = document.getElementById('violeta')
-const naranja = document.getElementById('naranja')
-const verde = document.getElementById('verde')
-const btnEmpezar = document.getElementById('btnEmpezar')
+const celeste = document.getElementById('celeste');
+const violeta = document.getElementById('violeta');
+const naranja = document.getElementById('naranja');
+const verde = document.getElementById('verde');
+const btnEmpezar = document.getElementById('btnEmpezar');
+const ultimo_Nivel = 10;
 
 class Juego {
     constructor() {
         this.inicializar()
         this.generarSecuencia()
-        this.siguienteNivel()
+        setTimeout(this.siguienteNivel, 1000)
     }
     //ZONA DE DECLARACIÓN DE FUNCIONES Y MÉTODOS
     inicializar() {
+        this.siguienteNivel = this.siguienteNivel.bind(this);
         this.elegirColor = this.elegirColor.bind(this);//el uso del método "bind" (atadura) pasandole "this" como parpametro, va a garantizar el el this usado al utilizar el método más adelante, el this siempre aga referencia al del principio, es decir al del juego, al que también se hace es crear una variable llamada _this ó selft y asignarle a this como valor y luego parsar esa variable creada como parámetro de bind, es una manera de hacer que la referencia sea un poco más entendible al momento de leer el código. Esto es algo raro del lenguaje JavaScript
+        this.siguienteNivel = this.siguienteNivel.bind(this);
         btnEmpezar.classList.add('hide');//esto va a ocultar el botón de empezar
-        this.nivel = 10
+        this.nivel = 1;
         this.colores = {
             // celeste: celeste,
             // violeta: violeta,
@@ -28,14 +31,16 @@ class Juego {
         }
     }
     generarSecuencia() {
-        this.secuencia = new Array(10).fill(0).map(n => Math.floor(Math.random() * 4))
+        this.secuencia = new Array(ultimo_Nivel).fill(0).map(n => Math.floor(Math.random() * 4))
         //recordad que el n dentro de map realmente es un 0 (cero)
     }
 
     siguienteNivel() {
-        this.iluminarSecuencia()
+        this.subNivel = 0;//creamos un subnivel 0 para reiniciar cada vez que se supera un nivel
+        // this.nombreAtributo = "valor"; recordatorio, esto agrega un nuevo atributo, no es necesario hacerlo dentro del constructor, estará disponible para cualquier elemento del objeto
+        this.iluminarSecuencia();
         //necesitamos una manera de saber si los cliks que el usuario da son correctos o no, así que vamos a agregar un input para saberlo, que va a escuchar los click
-        this.agregarEventosClick()
+        this.agregarEventosClick();
     }
 
     transformarNumeroAColor(numero) {
@@ -49,6 +54,19 @@ class Juego {
             case 3: 
                 return "verde";
             //en estos casos no hace caso colocar un "break" debido a que este jamás se va a ejecutar
+        }
+    }
+
+    transformarColorANumero(color) {
+        switch (color) {
+            case "celeste":
+                return 0;
+            case "violeta":
+                return 1;
+            case "naranja":
+                return 2;
+            case "verde": 
+                return 3;
         }
     }
 
@@ -84,11 +102,35 @@ class Juego {
         this.colores.naranja.addEventListener("click", this.elegirColor);
     }
 
-    elegirColor(ev) {//se pieder un poco el contexto de lo que es this
-        // console.log(ev)
-        console.log(this)
+    eliminarEventosClick() {
+        this.colores.celeste.removeEventListener("click", this.elegirColor);
+        this.colores.verde.removeEventListener("click", this.elegirColor);
+        this.colores.violeta.removeEventListener("click", this.elegirColor);
+        this.colores.naranja.removeEventListener("click", this.elegirColor);
     }
 
+    elegirColor(ev) {//se pieder un poco el contexto de lo que es this
+        // console.log(ev)
+        // console.log(this)
+        const nombreColor = ev.target.dataset.color;//esto es una aplicación de los atributos personalizados, el color hace referencia al atributo "data-color" en el html, target.dataset nos hará obtener en este caso el número del color que está siendo oprimido
+        const numeroColor = this.transformarColorANumero(nombreColor);
+        this.iluminarColor(nombreColor);
+        if (numeroColor === this.secuencia[this.subNivel]) {
+            //Esa primera condición se lee "si el número del color es igual al de la secuencia en el primer subnivel"
+            this.subNivel++;//si el usuario elige bien, incrementamos el subnivel
+            if(this.subNivel === this.nivel) {//si esto es verdad, el usuario pasa de nivel
+                this.nivel++;
+                this.eliminarEventosClick();//necesitamos crear una función que elimine los eventos de click por si el usuario gana o pierde no pueda seguir dando clicks
+                if (this.nivel === (ultimo_Nivel + 1)) {//Si esto se cumple, ya el usuario ha superado el último nivel, por lo tanto ganó el juego
+
+                } else {
+                    setTimeout(this.siguienteNivel, 1500);//si no es el último nivel, el usuario debe avanzar de nivel. Nota aquí la función la estamos pasando como referencia, "siguienteNivel" sin los paréntesis, es una referencia de que en este momento debe llamar a la función, no invocarla como tal en esta línea de código
+                }
+            } else {//el usuario se equivocó de botón, así que pierde
+
+            }
+        }
+    }
     //TERMINA ZONA DE FUNCIONES Y MÉTODOS
 }
 
