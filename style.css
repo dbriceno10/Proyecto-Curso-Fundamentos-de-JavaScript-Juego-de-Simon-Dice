@@ -25,6 +25,7 @@ body {
     margin: 0 auto;
     max-height: 60vh;
     max-width: 60vh;
+    /* border: 1px solid black; */
 }
 
 .color {
@@ -43,6 +44,7 @@ body {
 
 .celeste {
     background: #22a6b3;
+    /* border: 1px solid black; */
 }
 
 .celeste.light {
