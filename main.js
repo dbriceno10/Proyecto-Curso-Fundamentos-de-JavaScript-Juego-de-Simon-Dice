@@ -10,8 +10,10 @@ class Juego {
         this.generarSecuencia()
         this.siguienteNivel()
     }
+    //ZONA DE DECLARACIÓN DE FUNCIONES Y MÉTODOS
     inicializar() {
-        btnEmpezar.classList.add('hide')//esto va a ocultar el botón de empezar
+        this.elegirColor = this.elegirColor.bind(this);//el uso del método "bind" (atadura) pasandole "this" como parpametro, va a garantizar el el this usado al utilizar el método más adelante, el this siempre aga referencia al del principio, es decir al del juego, al que también se hace es crear una variable llamada _this ó selft y asignarle a this como valor y luego parsar esa variable creada como parámetro de bind, es una manera de hacer que la referencia sea un poco más entendible al momento de leer el código. Esto es algo raro del lenguaje JavaScript
+        btnEmpezar.classList.add('hide');//esto va a ocultar el botón de empezar
         this.nivel = 10
         this.colores = {
             // celeste: celeste,
@@ -32,6 +34,8 @@ class Juego {
 
     siguienteNivel() {
         this.iluminarSecuencia()
+        //necesitamos una manera de saber si los cliks que el usuario da son correctos o no, así que vamos a agregar un input para saberlo, que va a escuchar los click
+        this.agregarEventosClick()
     }
 
     transformarNumeroAColor(numero) {
@@ -68,7 +72,24 @@ class Juego {
     apagarColor(color) {
         this.colores[color].classList.remove("light");
     }
+    
+    agregarEventosClick() {//esta es una función que se va a ejecutar asíncronamemte, tiene un escuchador de eventos y se va a llamar cada vez que se le deun click a uno de los botones de colores, cuando javascript se queda sin tareas, empieza a ejecutar estas funciones en el orden que se vayan llamando. Estos métodos se suelen llamar con un parámetro, que generalmente se le asigna el nombre "ev"
+        // this.colores.celeste.addEventListener("click", this.elegirColor.bind(this));
+        // this.colores.verde.addEventListener("click", this.elegirColor.bind(this));
+        // this.colores.violeta.addEventListener("click", this.elegirColor.bind(this));
+        // this.colores.naranja.addEventListener("click", this.elegirColor.bind(this));
+        this.colores.celeste.addEventListener("click", this.elegirColor);
+        this.colores.verde.addEventListener("click", this.elegirColor);
+        this.colores.violeta.addEventListener("click", this.elegirColor);
+        this.colores.naranja.addEventListener("click", this.elegirColor);
+    }
 
+    elegirColor(ev) {//se pieder un poco el contexto de lo que es this
+        // console.log(ev)
+        console.log(this)
+    }
+
+    //TERMINA ZONA DE FUNCIONES Y MÉTODOS
 }
 
 function empezarJuego() {
