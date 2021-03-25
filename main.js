@@ -7,6 +7,7 @@ const ultimo_Nivel = 10;
 
 class Juego {
     constructor() {
+        this.inicializar = this.inicializar.bind(this);
         this.inicializar()
         this.generarSecuencia()
         setTimeout(this.siguienteNivel, 1000)
@@ -16,7 +17,8 @@ class Juego {
         this.siguienteNivel = this.siguienteNivel.bind(this);
         this.elegirColor = this.elegirColor.bind(this);//el uso del método "bind" (atadura) pasandole "this" como parpametro, va a garantizar el el this usado al utilizar el método más adelante, el this siempre aga referencia al del principio, es decir al del juego, al que también se hace es crear una variable llamada _this ó selft y asignarle a this como valor y luego parsar esa variable creada como parámetro de bind, es una manera de hacer que la referencia sea un poco más entendible al momento de leer el código. Esto es algo raro del lenguaje JavaScript
         this.siguienteNivel = this.siguienteNivel.bind(this);
-        btnEmpezar.classList.add('hide');//esto va a ocultar el botón de empezar
+        this.toggleBtnEmpezar();//será como un switch que nos permitirá ocultar nuestro botón de comenzar por medio de retirar o agregar una clase
+        // btnEmpezar.classList.add('hide');//esto va a ocultar el botón de empezar
         this.nivel = 1;
         this.colores = {
             // celeste: celeste,
@@ -30,6 +32,15 @@ class Juego {
             verde
         }
     }
+
+    toggleBtnEmpezar() {//este método se va fijar si el botón tiene la clase hide, si no la tiene se la va a agregar, y si la tiene se la va a quitar (para poder mostrar uestro botón de iniciar a voluntad)
+        if (btnEmpezar.classList.contains("hide")) {
+            btnEmpezar.classList.remove("hide");
+        } else {
+            btnEmpezar.classList.add("hide");
+        }
+    }
+
     generarSecuencia() {
         this.secuencia = new Array(ultimo_Nivel).fill(0).map(n => Math.floor(Math.random() * 4))
         //recordad que el n dentro de map realmente es un 0 (cero)
@@ -122,14 +133,31 @@ class Juego {
                 this.nivel++;
                 this.eliminarEventosClick();//necesitamos crear una función que elimine los eventos de click por si el usuario gana o pierde no pueda seguir dando clicks
                 if (this.nivel === (ultimo_Nivel + 1)) {//Si esto se cumple, ya el usuario ha superado el último nivel, por lo tanto ganó el juego
+                    this.ganoElJuego();
 
                 } else {
                     setTimeout(this.siguienteNivel, 1500);//si no es el último nivel, el usuario debe avanzar de nivel. Nota aquí la función la estamos pasando como referencia, "siguienteNivel" sin los paréntesis, es una referencia de que en este momento debe llamar a la función, no invocarla como tal en esta línea de código
                 }
-            } else {//el usuario se equivocó de botón, así que pierde
+            } 
+        } else {//el usuario se equivocó de botón, así que pierde
+            this.perdioElJuego();
 
-            }
         }
+    }
+    ganoElJuego() {
+        swal("Platzi","Ganaste el juego!", "success")//devuelve una promesa
+        // swal("Título", "Texto", "Estado")
+        // .then(() => this.inicializar());
+        .then(this.inicializar);
+        //this.inicializar = this.inicializar.bind(this);
+    }
+    perdioElJuego() {
+        swal("Platzi", "Lo siento, perdiste el juego", "error")
+        .then(() => {
+            this.eliminarEventosClick();
+            this.inicializar();
+            //this.inicializar = this.inicializar.bind(this);
+        })
     }
     //TERMINA ZONA DE FUNCIONES Y MÉTODOS
 }
