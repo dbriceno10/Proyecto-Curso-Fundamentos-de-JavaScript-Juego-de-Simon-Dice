@@ -1,6 +1,6 @@
-const celeste = document.getElementById('celeste')
-const violeta = document.getElementById('violeta')
-const naranja = document.getElementById('naranja')
+const amarillo = document.getElementById('amarillo')
+const azul = document.getElementById('azul')
+const rojo = document.getElementById('rojo')
 const verde = document.getElementById('verde')
 const btnEmpezar = document.getElementById('btnEmpezar')
 const ultimo_Nivel = 10
@@ -20,9 +20,9 @@ class Juego {
         this.toggleBtnEmpezar()//será como un switch que nos permitirá ocultar nuestro botón de comenzar por medio de retirar o agregar una clase
         this.nivel = 1
         this.colores = {
-            celeste,
-            violeta,
-            naranja,
+            amarillo,
+            azul,
+            rojo,
             verde
         }
     }
@@ -48,11 +48,11 @@ class Juego {
     transformarNumeroAColor(numero) {
         switch (numero) {
             case 0:
-                return "celeste"
+                return "amarillo"
             case 1:
-                return "violeta"
+                return "azul"
             case 2:
-                return "naranja"
+                return "rojo"
             case 3: 
                 return "verde"
         }
@@ -60,11 +60,11 @@ class Juego {
 
     transformarColorANumero(color) {
         switch (color) {
-            case "celeste":
+            case "amarillo":
                 return 0
-            case "violeta":
+            case "azul":
                 return 1
-            case "naranja":
+            case "rojo":
                 return 2
             case "verde": 
                 return 3
@@ -88,17 +88,17 @@ class Juego {
     }
     
     agregarEventosClick() {
-        this.colores.celeste.addEventListener("click", this.elegirColor)
+        this.colores.amarillo.addEventListener("click", this.elegirColor)
         this.colores.verde.addEventListener("click", this.elegirColor)
-        this.colores.violeta.addEventListener("click", this.elegirColor)
-        this.colores.naranja.addEventListener("click", this.elegirColor)
+        this.colores.azul.addEventListener("click", this.elegirColor)
+        this.colores.rojo.addEventListener("click", this.elegirColor)
     }
 
     eliminarEventosClick() {
-        this.colores.celeste.removeEventListener("click", this.elegirColor)
+        this.colores.amarillo.removeEventListener("click", this.elegirColor)
         this.colores.verde.removeEventListener("click", this.elegirColor)
-        this.colores.violeta.removeEventListener("click", this.elegirColor)
-        this.colores.naranja.removeEventListener("click", this.elegirColor)
+        this.colores.azul.removeEventListener("click", this.elegirColor)
+        this.colores.rojo.removeEventListener("click", this.elegirColor)
     }
 
     elegirColor(ev) {
@@ -121,17 +121,17 @@ class Juego {
             this.perdioElJuego()
 
         }
-    }
-    ganoElJuego() {
-        swal("Platzi","Ganaste el juego!", "success")//devuelve una promesa
-        .then(this.inicializar)
-    }
-    perdioElJuego() {
-        swal("Platzi", "Lo siento, perdiste el juego", "error")
-        .then(() => {
-            this.eliminarEventosClick()
-            this.inicializar()
-        })
+    // }
+    // ganoElJuego() {
+    //     swal("Platzi","Ganaste el juego!", "success")//devuelve una promesa
+    //     .then(this.inicializar)
+    // }
+    // perdioElJuego() {
+    //     swal("Platzi", "Lo siento, perdiste el juego", "error")
+    //     .then(() => {
+    //         this.eliminarEventosClick()
+    //         this.inicializar()
+    //     })
     }
 }
 

@@ -20,12 +20,14 @@ body {
 .gameboard {
     height: 100vh;
     width: 100vh;
-    border-radius: 50%;
+    border-radius: 100px;
     overflow: hidden;
     margin: 0 auto;
     max-height: 60vh;
     max-width: 60vh;
+    padding: 20px;
     /* border: 1px solid black; */
+    background-color: #eee;
 }
 
 .color {
@@ -42,38 +44,72 @@ body {
     float: left;
 }
 
-.celeste {
-    background: #22a6b3;
-    /* border: 1px solid black; */
+.amarillo {/*.amarillo*/
+    background-color: #ab9e2c;
+    border-radius:  0 0 100% 0;
+    box-shadow: inset 5px 10px 4px 0px rgba(250, 250, 250, .2),
+    inset -8px -5px 4px 0px rgba(250, 250, 250, .2);
+    border-radius: 100%;
 }
 
-.celeste.light {
-    background: #7ed6df;
+.amarillo.light {
+    background-color: #ffed00;
+    border-radius:  100%;
+    box-shadow: inset 5px -10px 15px 0px #cfc112,
+    inset -8px 5px 4px 0px #cfc112,
+    0px 0px 15px 10px #e8da26,
+    0px 0px 2px 6px #e2d966;
 }
 
-.violeta {
-    background: #be2edd;
+.azul {/*.azul*/
+    background-color: #2a8fbd;
+    border-radius: 100%;
+    box-shadow: inset 5px -10px 4px 0px rgba(250, 250, 250, .2),
+    inset -4px 8px 4px 0px rgba(250, 250, 250, .2);
 }
 
-.violeta.light {
-    background: #e056fd;
+.azul.light {
+    background-color: #397fc0;
+    border-radius: 100%;
+    box-shadow: inset -5px -10px 15px 0px #0a62b3,
+    inset 8px 5px 4px 0px #0a62b3,
+    0px 0px 15px 10px #6caae2,
+    0px 0px 2px 6px #2e8be0;
 }
 
-.naranja {
-    background: #f0932b;
+.rojo {/*.rojo*/
+    background-color: #c72b20;
+    border-radius: 100%;
+    box-shadow: inset -5px 10px 4px 0px rgba(250, 250, 250, .2),
+    inset 8px -5px 4px 0px rgba(250, 250, 250, .2),
+    inset 0px -2px 4px 0px rgba(250, 250, 250, .2);
 }
 
-.naranja.light {
-    background: #ffbe76;
+.rojo.light {
+    background-color: #fd4c3f;
+    border-radius: 100%;
+    box-shadow: inset -5px 10px 15px 0px #8e150c,
+    inset 8px -5px 4px 0px #8e150c,
+    0px 0px 15px 10px #eb867f,
+    0px 0px 2px 6px #cb1c10;
 }
 
 .verde {
-    background: #6ab04c;
+    background-color: #156c39;
+    border-radius: 100%;
+    box-shadow: inset 5px 10px 4px 0px rgba(250, 250, 250, .2),
+    inset -8px -5px 4px 0px rgba(250, 250, 250, .2);
 }
 
 .verde.light {
-    background: #badc58;
+    background-color: #05ff00;
+    border-radius: 100%;
+    box-shadow: inset -8px -10px 15px 0px #18ac15,
+    inset 8px 5px 4px 0px #18ac15,
+    0px 0px 15px 10px #5af157,
+    0px 0px 8px 6px #84e782;
 }
+
 
     .btn-start {
     width: 400px;
@@ -85,6 +121,12 @@ body {
     top: calc(50% - 50px);
     left: calc(50% - 200px);
     }
+
+.btn-start {
+    width: 20px;
+    height: 20x;
+    background-color: chartreuse;
+}
 
 .hide {
     display: none;
