@@ -3,7 +3,7 @@ const azul = document.getElementById('azul')
 const rojo = document.getElementById('rojo')
 const verde = document.getElementById('verde')
 const btnEmpezar = document.getElementById('btnEmpezar')
-const ultimo_Nivel = 10
+const ultimo_Nivel = 3
 
 class Juego {
     constructor() {
@@ -19,6 +19,7 @@ class Juego {
         this.siguienteNivel = this.siguienteNivel.bind(this)
         this.toggleBtnEmpezar()//será como un switch que nos permitirá ocultar nuestro botón de comenzar por medio de retirar o agregar una clase
         this.nivel = 1
+        this.puntos = 0
         this.colores = {
             amarillo,
             azul,
@@ -101,12 +102,18 @@ class Juego {
         this.colores.rojo.removeEventListener("click", this.elegirColor)
     }
 
+    nivelSuperado() {
+        swal(`¡Nivel ${this.nivel - 1} superado!`, `Tu puntuación: ${this.puntos}`, "./fonts/logo-next_level.png")
+    .then(() => setTimeout(this.siguienteNivel, 1000))
+    }
+
     elegirColor(ev) {
         const nombreColor = ev.target.dataset.color
         const numeroColor = this.transformarColorANumero(nombreColor)
         this.iluminarColor(nombreColor)
         if (numeroColor === this.secuencia[this.subNivel]) {//verificar si el color elegido es igual al del primer subnivel
             this.subNivel++
+            this.puntos++
             if(this.subNivel === this.nivel) {//pasar al siguiente nivel
                 this.nivel++
                 this.eliminarEventosClick()
@@ -114,28 +121,31 @@ class Juego {
                     this.ganoElJuego()
 
                 } else {
-                    setTimeout(this.siguienteNivel, 1500)//El usuario avanza al siguiendo nivel
+                    // setTimeout(this.siguienteNivel, 1500)//El usuario avanza al siguiendo nivel
+                    this.nivelSuperado()
                 }
             } 
         } else {//el usuario se equivocó de botón, así que pierde
             this.perdioElJuego()
 
         }
-    // }
-    // ganoElJuego() {
-    //     swal("Platzi","Ganaste el juego!", "success")//devuelve una promesa
-    //     .then(this.inicializar)
-    // }
-    // perdioElJuego() {
-    //     swal("Platzi", "Lo siento, perdiste el juego", "error")
-    //     .then(() => {
-    //         this.eliminarEventosClick()
-    //         this.inicializar()
-    //     })
+    }
+    ganoElJuego() {
+        //swal("Platzi","Ganaste el juego!", "success")//devuelve una promesa
+        swal("!Felicitaciones, ganas el juego¡", `Tu puntucación: ${this.puntos}`,"./fonts/logo-win_the_game.png")
+        .then(this.inicializar)
+    }
+    perdioElJuego() {
+        //swal("Platzi", "Lo siento, perdiste el juego", "error")
+        swal("Lo siento, pierdes esta vez, mejor suerte la próxima", `Tu puntucación: ${this.puntos}`,"./fonts/logo-game_over.png")
+        .then(() => {
+            this.eliminarEventosClick()
+            this.inicializar()
+        })
     }
 }
 
 function empezarJuego() {
     window.juego = new Juego()
-    console.log(juego)
+    // console.log(juego)
 }
