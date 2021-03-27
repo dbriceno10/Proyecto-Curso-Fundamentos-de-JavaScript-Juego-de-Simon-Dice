@@ -176,8 +176,31 @@ class Juego {
         if (this.puntos > this.maxScore) {
             localStorage.setItem('puntos', this.puntos)
         }
-        swal("!Felicitaciones, ganas el juego¡", `Tu puntucación: ${this.puntos}`,"./fonts/logo-win_the_game.png")
+        // swal("!Felicitaciones, ganas el juego¡", `Tu puntucación: ${this.puntos}`,"./fonts/logo-win_the_game.png")
+        // .then(this.inicializar)
+        if (ultimo_Nivel === 5) {
+            swal("!Felicitaciones¡ Ganas en modo Fácil, no está mal para practicar.", `Tu puntucación: ${this.puntos}`,"./fonts/logo-win_the_game.png")
         .then(this.inicializar)
+        } else if (ultimo_Nivel === 10) {
+            swal("!Felicitaciones¡ Ganas en modo Normal, ya estás listo/a para ir por un verdadero reto. ¿No te parece?", `Tu puntucación: ${this.puntos}`,"./fonts/logo-win_the_game.png")
+        .then(this.inicializar)
+        } else if (ultimo_Nivel === 15) {
+            swal("!Felicitaciones¡ Ganas en modo Medio, te estás volviendo bueno/a en esto. Pero ¿Medio de qué? Mejor sigue avanzando.", `Tu puntucación: ${this.puntos}`,"./fonts/logo-win_the_game.png")
+        } else if (ultimo_Nivel === 25) {
+            swal("!Felicitaciones¡ Ganas en modo Difícil, si que estás adquiriendo maestía, que impresionante.", `Tu puntucación: ${this.puntos}`,"./fonts/logo-win_the_game.png")
+        } else if (ultimo_Nivel === 40) {
+            swal("!Felicitaciones¡ Ganas en modo Experto, ya eres todo un experto, sin embargo, sigue avanzando y encontrarás sorpresas.", `Tu puntucación: ${this.puntos}`,"./fonts/logo-win_the_game.png")
+        } else if (ultimo_Nivel === 50) {
+            swal("!Felicitaciones¡ Ganas en modo Épico. ¿Quién lo pensaría? Te acercas a descubir secretos.", `Tu puntucación: ${this.puntos}`,"./fonts/logo-win_the_game.png")
+        } else if (ultimo_Nivel === 100) {
+            swal("!Felicitaciones¡ Ganas en modo Legendario, tu hazaña será recordada en la historia. ¿Estás listo, para conocer el secreto de la inmortalidad?...", `Tu puntucación: ${this.puntos}`,"./fonts/logo-win_the_game.png")
+        } else if (ultimo_Nivel === 999) {
+            swal("!Felicitaciones¡ Ganas en modo Superviviencia, no creímos que nadie pudiera jamás. Sin embargo la inmortalidad es algo de gran valor, completa el reto una vez más y se te será revelado el secreto.", `Tu puntucación: ${this.puntos}`,"./fonts/logo-win_the_game.png")
+        }
+        else {//el caso de que hubiera un error con el número del último nivel
+            swal("!Felicitaciones, ganas el juego¡", `Tu puntucación: ${this.puntos}`,"./fonts/logo-win_the_game.png")
+            .then(this.inicializar)
+        }
     }
     perdioElJuego() {
         //swal("Platzi", "Lo siento, perdiste el juego", "error")
