@@ -13,11 +13,32 @@
 <body>
     <header></header>
     <main>
-        <!-- <section>
+        <section>
             <div>
                 <h1>Su Puntuación más alta: <span id="puntos">0</span></h1>
             </div>
-        </section> -->
+        </section>
+        <section>
+            <h2>Elije la Dificultad</h2>
+            <div>
+                <!-- <ul>
+                    <li>Fácil: 5 Niveles</li>
+                    <li>Normal: 10 Niveles</li>
+                    <li>Medio: 25 Niveles</li>
+                    <li>Difícil: 50 Niveles</li>
+                    <li>Experto: 100 Niveles</li>
+                    <li>Supervivencia: 999 Niveles</li>
+                </ul> -->
+                <select name="level" id="level">
+                    <option value="5">Fácil: 5 Niveles</option>
+                    <option value="10"><li>Normal: 10 Niveles</li></option>
+                    <option value="25">Medio: 25 Niveles</option>
+                    <option value="50">Difícil: 50 Niveles</option>
+                    <option value="100">Experto: 100 Niveles</option>
+                    <option value="999">Supervivencia: 999 Niveles</option>
+                </select>
+            </div>
+        </section>
         <div class="gameboard">
             <div id="amarillo" class="color amarillo left" data-color="amarillo"></div>
             <div id="azul" class="color azul right" data-color="azul"></div>

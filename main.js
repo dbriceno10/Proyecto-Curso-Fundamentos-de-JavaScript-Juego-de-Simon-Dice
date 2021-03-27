@@ -3,6 +3,7 @@ const azul = document.getElementById('azul')
 const rojo = document.getElementById('rojo')
 const verde = document.getElementById('verde')
 const btnEmpezar = document.getElementById('btnEmpezar')
+const puntaje = document.getElementById('puntos')
 const ultimo_Nivel = 3
 
 class Juego {
@@ -14,6 +15,11 @@ class Juego {
     }
     
     inicializar() {
+        
+        this.maxScore = localStorage.getItem('puntos')
+        if (this.maxScore != null) {
+            puntaje.innerHTML = this.maxScore
+        }
         this.siguienteNivel = this.siguienteNivel.bind(this)
         this.elegirColor = this.elegirColor.bind(this)
         this.siguienteNivel = this.siguienteNivel.bind(this)
@@ -132,11 +138,17 @@ class Juego {
     }
     ganoElJuego() {
         //swal("Platzi","Ganaste el juego!", "success")//devuelve una promesa
+        if (this.puntos > this.maxScore) {
+            localStorage.setItem('puntos', this.puntos)
+        }
         swal("!Felicitaciones, ganas el juego¡", `Tu puntucación: ${this.puntos}`,"./fonts/logo-win_the_game.png")
         .then(this.inicializar)
     }
     perdioElJuego() {
         //swal("Platzi", "Lo siento, perdiste el juego", "error")
+        if (this.puntos > this.maxScore) {
+            localStorage.setItem('puntos', this.puntos)
+        }
         swal("Lo siento, pierdes esta vez, mejor suerte la próxima", `Tu puntucación: ${this.puntos}`,"./fonts/logo-game_over.png")
         .then(() => {
             this.eliminarEventosClick()
