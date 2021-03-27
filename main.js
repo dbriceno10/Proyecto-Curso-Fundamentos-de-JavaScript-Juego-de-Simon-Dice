@@ -2,6 +2,10 @@ const amarillo = document.getElementById("amarillo")
 const azul = document.getElementById("azul")
 const rojo = document.getElementById("rojo")
 const verde = document.getElementById("verde")
+const nota_do = document.getElementById('sound_do')
+const nota_re = document.getElementById('sound_re')
+const nota_mi = document.getElementById('sound_mi')
+const nota_fa = document.getElementById('sound_fa')
 const btnEmpezar = document.getElementById("btnEmpezar")
 const puntaje = document.getElementById("puntos")
 const dificultad = document.getElementById("dificultad")
@@ -59,6 +63,12 @@ class Juego {
             rojo,
             verde
         }
+        this.sonido = {
+            nota_do,
+            nota_re,
+            nota_mi,
+            nota_fa
+        }
     }
 
     toggleBtnEmpezar() {
@@ -113,10 +123,28 @@ class Juego {
         }
     }
 
+    sonidoDeColor(color) {
+        switch(color) {
+            case "amarillo":
+                this.sonido.nota_do.play()
+            break
+            case "azul":
+                this.sonido.nota_re.play()
+            break
+            case "rojo":
+                this.sonido.nota_mi.play()
+            break
+            case "verde":
+                this.sonido.nota_fa.play()
+            break
+        }
+    }
+
     iluminarSecuencia() { 
         for (let i = 0; i < this.nivel; i++) {
             const color = this.transformarNumeroAColor(this.secuencia[i])
             setTimeout(() => this.iluminarColor(color), 1000 * i)
+            setTimeout(() => this.sonidoDeColor(color), 1000 * i)
         }
     }
 
@@ -152,6 +180,7 @@ class Juego {
         const nombreColor = ev.target.dataset.color
         const numeroColor = this.transformarColorANumero(nombreColor)
         this.iluminarColor(nombreColor)
+        this.sonidoDeColor(nombreColor)
         if (numeroColor === this.secuencia[this.subNivel]) {//verificar si el color elegido es igual al del primer subnivel
             this.subNivel++
             this.puntos++
