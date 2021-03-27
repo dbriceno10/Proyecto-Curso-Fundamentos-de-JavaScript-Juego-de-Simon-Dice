@@ -1,11 +1,38 @@
-const amarillo = document.getElementById('amarillo')
-const azul = document.getElementById('azul')
-const rojo = document.getElementById('rojo')
-const verde = document.getElementById('verde')
-const btnEmpezar = document.getElementById('btnEmpezar')
-const puntaje = document.getElementById('puntos')
-const ultimo_Nivel = 3
-
+const amarillo = document.getElementById("amarillo")
+const azul = document.getElementById("azul")
+const rojo = document.getElementById("rojo")
+const verde = document.getElementById("verde")
+const btnEmpezar = document.getElementById("btnEmpezar")
+const puntaje = document.getElementById("puntos")
+const dificultad = document.getElementById("dificultad")
+// btnEmpezar.addEventListener("click",capturar)
+function capturar() {
+    const niv = document.getElementById("level").value
+    const aux = parseInt(niv)
+    // console.log(aux)
+    return aux
+    // if (aux === 5) {
+    //     return 5
+    // }
+    // if (aux === 10) {
+    //     return 10
+    // }
+    // if (aux === 25) {
+    //     return 25
+    // }
+    // if (aux === 50) {
+    //     return 50
+    // }
+    // if (aux === 100) {
+    //     return 100
+    // }
+    // if (aux === 999) {
+    //     return 999
+    // }
+}
+// // let test = capturar()
+// console.log(`Valor de test fuera de juego ${test}`)
+let ultimo_Nivel
 class Juego {
     constructor() {
         this.inicializar = this.inicializar.bind(this)
@@ -40,6 +67,14 @@ class Juego {
         } else {
             btnEmpezar.classList.add("hide")
         }
+        if (dificultad.classList.contains("hide")) {
+            dificultad.classList.remove("hide")
+        } else {
+            dificultad.classList.add("hide")
+        }
+        ultimo_Nivel = capturar()
+        // console.log(`Último nivel ${ultimo_Nivel}`)
+        console.log(`El último nivel es ${ultimo_Nivel}`)
     }
 
     generarSecuencia() {

@@ -18,7 +18,7 @@
                 <h1>Su Puntuación más alta: <span id="puntos">0</span></h1>
             </div>
         </section>
-        <section>
+        <section id="dificultad">
             <h2>Elije la Dificultad</h2>
             <div>
                 <!-- <ul>
@@ -29,7 +29,16 @@
                     <li>Experto: 100 Niveles</li>
                     <li>Supervivencia: 999 Niveles</li>
                 </ul> -->
-                <select name="level" id="level">
+                <!-- <input type="number" id="level2"> -->
+                <!-- <select name="level" id="level" onchange="mostrar();"> -->
+                    <!-- <input type="text" class="level2"> -->
+                    <select name="level" id="level">
+                    <!-- <option value="" disabled selected>Elije la Dificultad</option> -->
+                    <!-- <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option> -->
+                    <!--Opciones de prueba-->
                     <option value="5">Fácil: 5 Niveles</option>
                     <option value="10"><li>Normal: 10 Niveles</li></option>
                     <option value="25">Medio: 25 Niveles</option>
@@ -37,6 +46,7 @@
                     <option value="100">Experto: 100 Niveles</option>
                     <option value="999">Supervivencia: 999 Niveles</option>
                 </select>
+                <!-- <input type="submit" id="captura" value="captura"> -->
             </div>
         </section>
         <div class="gameboard">
@@ -44,7 +54,8 @@
             <div id="azul" class="color azul right" data-color="azul"></div>
             <div id="rojo" class="color rojo left" data-color="rojo"></div>
             <div id="verde" class="color verde right" data-color="verde"></div>
-            <button id="btnEmpezar" class="btn-start" onclick="empezarJuego()">Empezar a jugar!</button>
+            <button id="btnEmpezar" class="btn-start" onclick="empezarJuego(), capturar()">Empezar a jugar!</button>
+            <!-- <input type="submit" id="btnEmpezar" class="btn-start" onclick="empezarJuego()" value="Empezar a jugar!"> -->
         </div>
     </main>
 

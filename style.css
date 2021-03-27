@@ -4,7 +4,9 @@
     padding: 0;
     box-sizing: border-box;
 }
-
+#captura {
+    background-color: red;
+}
 html {
     font-size: 62.5%;
     font-family: "Roboto", sans-serif;
@@ -129,7 +131,7 @@ main {
 }
 
 
-    .btn-start {
+    /* .btn-start {
     width: 400px;
     height: 100px;
     background: #ecf0f1;
@@ -138,13 +140,8 @@ main {
     position: absolute;
     top: calc(50% - 50px);
     left: calc(50% - 200px);
-    }
+    } */
 
-.btn-start {
-    width: 20px;
-    height: 20x;
-    background-color: chartreuse;
-}
 
 .hide {
     display: none;
