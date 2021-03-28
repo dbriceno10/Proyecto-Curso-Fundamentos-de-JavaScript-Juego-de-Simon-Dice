@@ -10,10 +10,15 @@ const btnEmpezar = document.getElementById("btnEmpezar")
 const puntaje = document.getElementById("puntos")
 // const dificultad = document.getElementById("dificultad")
 // btnEmpezar.addEventListener("click",capturar)
-function capturar() {
-    const niv = document.getElementById("level").value
-    const aux = parseInt(niv)
-    return aux
+// function capturar() {
+//     const niv = document.getElementById("level").value
+//     const aux = parseInt(niv)
+//     return aux
+// }
+
+capturar = () => {
+    const niv = parseInt(document.getElementById("level").value)
+    return niv
 }
 let ultimo_Nivel
 class Juego {
