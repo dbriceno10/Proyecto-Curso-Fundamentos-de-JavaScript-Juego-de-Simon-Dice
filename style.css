@@ -1,24 +1,96 @@
-
+:root {
+    /* colores */
+    --bitcoin-orange: #F7931A;
+    --soft-blue: #E7F5FF;
+    --warm-black: #201E1C;
+    --black: #282623;
+    --secondary-blue: #1A9AF7;
+    --secundary-orange: #FF9536;
+    --gray: #bababa;
+    --just-white: #fff;
+    --soft-orange: #FFE9D5;
+    --off-white: #FAF8F7;
+}
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
-#captura {
-    background-color: red;
-}
+
 html {
     font-size: 62.5%;
     font-family: "Roboto", sans-serif;
+    font-style: normal;
 }
 
 body {
     margin: 0;
-    background: #dedede;
-    /* display: flex;
-    align-items: center;
-    height: 100vh; */
+    /* background: #dedede; */
+    /* display: flex; */
+    /* align-items: center; */
+    height: 100vh;
+    background-color: var(--black);
+
 }
+
+header {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    width: 100%;
+    justify-content: center;
+    text-align: center;
+    min-width: 320px;
+    /* height: 150px; */
+    height: 120px;
+    font-family: "Roboto", sans-serif;
+    font-size: bold;
+    line-height: 1.8rem;
+    /* background: linear-gradient(184deg, rgba(9,9,121,1) 7%, rgba(143,143,194,1) 34%, rgba(255,255,255,0.9864320728291317) 100%); */
+    /* background: linear-gradient(0deg, rgba(9,9,121,1) 7%, rgba(143,143,194,1) 34%, rgba(255,255,255,0.9864320728291317) 100%); */
+    background-color: #77bcee;
+}
+
+/* header div img {
+    width: 180px;
+    position:absolute;
+    top: 10px;
+    left: calc(50% - 100px);
+} */
+header section {
+    /* margin-top: 20px; */
+    /* margin-bottom: 10px */
+    line-height: 2.5rem;
+    
+}
+header section h1 {
+    font-weight: bold;
+    font-size: 2.4rem;
+    /* line-height: 2.6rem; */
+}
+
+header section h2 {
+    /* margin-top: 10px;
+    margin-bottom: 10px; */
+    font-weight: 500;
+    font-size: 1.4rem;
+    /* line-height: 2rem; */
+}
+
+#level {
+    /* font-family: "Roboto", sans-serif;
+    font-size: bold;
+    line-height: 2.6rem; */
+    border: none;
+    /* box-shadow: 10px 4px 8px rgba(0, 0, 0, 0.3); */
+    box-shadow: inset  0px 2px 4px rgba(255, 255, 255, 1);
+    border-radius: 10px;
+    width: 150px;
+    height: 30px;
+    background-color: var(--warm-black);
+    color: white;
+}
+
 main {
     width: 100%;
     height: auto;
@@ -26,28 +98,43 @@ main {
     max-width: 900px;
     /* margin: 0 auto; */
     display: flex;
-    align-items: center;
-    height: 100vh;
+    /* align-items: center; */
+    /* height: 100vh; */
+    height: auto;
+    position: relative;
+    /* background-image: url("./fonts/fondo-neon1.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center; */
+    background-color: var(--black);
+    margin: 0 auto;
 }
 .gameboard {
     /* height: 100vh;
     width: 100vh; */
-    height: 100%;
-    width: 100%;
+    /* position: absolute; */
+    /* width: 80%; */
+    width: 300px;
+    height: 300px;
     border-radius: 100px;
     overflow: hidden;
     margin: 0 auto;
-    max-height: 60vh;
-    max-width: 60vh;
-    min-height: 300px;
-    min-width: 300px;
-    padding: 20px;
+    margin-top: 60px;
+    margin-bottom: 60px;
+    /* max-height: 50vh; */
+    /* max-width: 50vh; */
+    padding: 15px;
     /* border: 1px solid black; */
     /* background-color: #eee; */
     box-shadow:  1px 3px 5px 0px rgba(0,0,0,1),
     0px 7px 10px 0px rgba(0,0,0,1),
     inset 0px 8px 5px 0px rgba(250, 250, 250, .2),
     inset 0px -1px 5px 0px rgba(250, 250, 250, .2);
+    /* background-image: url("./fonts/fondo-neon1.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center; */
+    background-color: var(--warm-black);
 }
 
 .color {
@@ -142,6 +229,33 @@ main {
     left: calc(50% - 200px);
     } */
 
+.btn-start {
+    width: 150px;
+    height: 100px;
+    /* background: #ecf0f1; */
+    color: #2c3e50;
+    font-size: 3rem;
+    position: absolute;
+    top: calc(50% - 50px );
+    left: calc(50% - 75px);
+    border: none;
+    box-shadow: 10px 4px 8px inset rgba(0, 0, 0, 0.3);
+    border-radius: 100px;
+    font-size: bold;
+    line-height: 2.6rem;
+    /* box-shadow: inset 5px 10px 4px 0px rgba(250, 250, 250, .2),
+    inset -8px -5px 4px 0px rgba(250, 250, 250, .2); */
+}
+
+.btn-start:hover {
+    color: white;
+    background-color: black;
+    box-shadow: inset 5px 10px 4px 0px rgba(250, 250, 250, .2),
+    inset -8px -5px 4px 0px rgba(250, 250, 250, .2)
+}
+
+
+
 
 .hide {
     display: none;
@@ -156,4 +270,51 @@ main {
     url('./fonts/icomoon.svg?isb3ud#icomoon') format('svg');
     font-weight: normal;
     font-style: normal;
+}
+
+footer {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100px;
+    text-align: center;
+    align-items: center;
+    color: black;
+    /* background-color: rgba(143,143,194,1); */
+    /* background: rgb(9,9,121); */
+    /* background: linear-gradient(180deg, rgba(9,9,121,1) 9%, rgba(143,143,194,1) 34%, rgba(255,255,255,1) 66%, rgba(0,0,0,1) 100%); */
+    /* background: linear-gradient(180deg, rgba(9,9,121,1) 9%, rgba(143,143,194,1) 34%, rgba(0,0,0,1) 100%); */
+    /* font-style: normal;
+    font-weight: 500;
+    font-size: 1.4rem;
+    line-height: 1.8rem; */
+    line-height: 2rem;
+    background-color: var(--warm-black);
+}
+footer div {
+    padding: 15px;
+    width: 100%;
+    height: 100px;
+    border-radius: 500px;
+    background-color:var(--soft-blue);
+    box-shadow: 10px 4px 8px inset rgba(0, 0, 0, 0.3);
+}
+
+footer p {
+    /* font-size: 1.5rem; */
+    font-style: normal;
+    font-weight: 500;
+    font-size: 1.4rem;
+    /* line-height: 1.8rem; */
+}
+
+footer p #autor {
+    font-style: normal;
+    font-weight: bold;
+    font-size: 1.4rem;
+}
+
+footer p a {
+    text-decoration: none;
+    color:black;
 }
