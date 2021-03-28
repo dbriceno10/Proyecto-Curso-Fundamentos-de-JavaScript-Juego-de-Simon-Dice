@@ -224,5 +224,4 @@ class Juego {
 
 function empezarJuego() {
     window.juego = new Juego()
-    // console.log(juego)
 }
