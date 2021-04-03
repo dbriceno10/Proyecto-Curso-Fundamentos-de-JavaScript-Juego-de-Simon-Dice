@@ -8,13 +8,6 @@ const nota_mi = document.getElementById('sound_mi')
 const nota_fa = document.getElementById('sound_fa')
 const btnEmpezar = document.getElementById("btnEmpezar")
 const puntaje = document.getElementById("puntos")
-// const dificultad = document.getElementById("dificultad")
-// btnEmpezar.addEventListener("click",capturar)
-// function capturar() {
-//     const niv = document.getElementById("level").value
-//     const aux = parseInt(niv)
-//     return aux
-// }
 
 capturar = () => {
     const niv = parseInt(document.getElementById("level").value)
@@ -31,9 +24,9 @@ class Juego {
     
     inicializar() {
         
-        this.maxScore = localStorage.getItem('puntos')
-        if (this.maxScore != null) {
-            puntaje.innerHTML = this.maxScore
+        this.maxPuntaje = localStorage.getItem("puntos")
+        if (this.maxPuntaje != null) {
+            puntaje.innerHTML = this.maxPuntaje
         }
         this.siguienteNivel = this.siguienteNivel.bind(this)
         this.elegirColor = this.elegirColor.bind(this)
@@ -185,7 +178,7 @@ class Juego {
     }
     ganoElJuego() {
         //swal("Platzi","Ganaste el juego!", "success")//devuelve una promesa
-        if (this.puntos > this.maxScore) {
+        if (this.puntos > this.maxPuntaje) {
             localStorage.setItem('puntos', this.puntos)
         }
         // swal("!Felicitaciones, ganas el juego¡", `Tu puntucación: ${this.puntos}`,"./fonts/logo-win_the_game.png")
@@ -216,7 +209,7 @@ class Juego {
     }
     perdioElJuego() {
         //swal("Platzi", "Lo siento, perdiste el juego", "error")
-        if (this.puntos > this.maxScore) {
+        if (this.puntos > this.maxPuntaje) {
             localStorage.setItem('puntos', this.puntos)
         }
         swal("Lo siento, pierdes esta vez, mejor suerte la próxima", `Tu puntucación: ${this.puntos}`,"./fonts/logo-game_over.png")
