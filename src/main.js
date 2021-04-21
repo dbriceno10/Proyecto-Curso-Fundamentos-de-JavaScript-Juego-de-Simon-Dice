@@ -8,6 +8,8 @@ const nota_mi = document.getElementById('sound_mi')
 const nota_fa = document.getElementById('sound_fa')
 const btnEmpezar = document.getElementById("btnEmpezar")
 const puntaje = document.getElementById("puntos")
+let item = localStorage.getItem("puntos")
+puntaje.innerHTML = item
 
 capturar = () => {
     const niv = parseInt(document.getElementById("level").value)
