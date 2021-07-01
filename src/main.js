@@ -26,7 +26,7 @@ class Juego {
         setTimeout(this.siguienteNivel, 1000)
     }
     
-    inicializar() {
+    inicializar = () => {
         
         this.maxPuntaje = localStorage.getItem("puntos")
         if (this.maxPuntaje != null) {
@@ -52,32 +52,27 @@ class Juego {
         }
     }
 
-    toggleBtnEmpezar() {
+    toggleBtnEmpezar = () => {
         if (btnEmpezar.classList.contains("hide")) {
             btnEmpezar.classList.remove("hide")
         } else {
             btnEmpezar.classList.add("hide")
         }
-        // if (dificultad.classList.contains("hide")) {
-        //     dificultad.classList.remove("hide")
-        // } else {
-        //     dificultad.classList.add("hide")
-        // }
         ultimo_Nivel = capturar()
         console.log(`El último nivel es ${ultimo_Nivel}`)
     }
 
-    generarSecuencia() {
+    generarSecuencia = () => {
         this.secuencia = new Array(ultimo_Nivel).fill(0).map(n => Math.floor(Math.random() * 4))
     }
 
-    siguienteNivel() {
+    siguienteNivel = () => {
         this.subNivel = 0
         this.iluminarSecuencia()
         this.agregarEventosClick()
     }
 
-    transformarNumeroAColor(numero) {
+    transformarNumeroAColor = (numero) => {
         switch (numero) {
             case 0:
                 return "amarillo"
@@ -90,7 +85,7 @@ class Juego {
         }
     }
 
-    transformarColorANumero(color) {
+    transformarColorANumero = (color) => {
         switch (color) {
             case "amarillo":
                 return 0
@@ -103,7 +98,7 @@ class Juego {
         }
     }
 
-    sonidoDeColor(color) {
+    sonidoDeColor = (color) => {
         switch(color) {
             case "amarillo":
                 this.sonido.nota_do.play()
@@ -120,7 +115,7 @@ class Juego {
         }
     }
 
-    iluminarSecuencia() { 
+    iluminarSecuencia = () => { 
         for (let i = 0; i < this.nivel; i++) {
             const color = this.transformarNumeroAColor(this.secuencia[i])
             setTimeout(() => this.iluminarColor(color), 800 * i)
@@ -128,35 +123,35 @@ class Juego {
         }
     }
 
-    iluminarColor(color) {
+    iluminarColor = (color) => {
         this.colores[color].classList.add("light")
         setTimeout( () => this.apagarColor(color), 350)
     }
 
-    apagarColor(color) {
+    apagarColor = (color) => {
         this.colores[color].classList.remove("light")
     }
     
-    agregarEventosClick() {
+    agregarEventosClick = () => {
         this.colores.amarillo.addEventListener("click", this.elegirColor)
         this.colores.verde.addEventListener("click", this.elegirColor)
         this.colores.azul.addEventListener("click", this.elegirColor)
         this.colores.rojo.addEventListener("click", this.elegirColor)
     }
 
-    eliminarEventosClick() {
+    eliminarEventosClick = () => {
         this.colores.amarillo.removeEventListener("click", this.elegirColor)
         this.colores.verde.removeEventListener("click", this.elegirColor)
         this.colores.azul.removeEventListener("click", this.elegirColor)
         this.colores.rojo.removeEventListener("click", this.elegirColor)
     }
 
-    nivelSuperado() {
+    nivelSuperado = () => {
         swal(`¡Nivel ${this.nivel - 1} superado!`, `Tu puntuación: ${this.puntos}`, "./fonts/logo-next_level.png")
     .then(() => setTimeout(this.siguienteNivel, 1000))
     }
 
-    elegirColor(ev) {
+    elegirColor = (ev) => {
         const nombreColor = ev.target.dataset.color
         const numeroColor = this.transformarColorANumero(nombreColor)
         this.iluminarColor(nombreColor)
@@ -183,7 +178,7 @@ class Juego {
 
         }
     }
-    ganoElJuego() {
+    ganoElJuego = () => {
         //swal("Platzi","Ganaste el juego!", "success")//devuelve una promesa
         if (this.puntos > this.maxPuntaje) {
             localStorage.setItem('puntos', this.puntos)
@@ -216,7 +211,7 @@ class Juego {
         c1 = 0
         counter.innerHTML = 0
     }
-    perdioElJuego() {
+    perdioElJuego = () => {
         
         //swal("Platzi", "Lo siento, perdiste el juego", "error")
         if (this.puntos > this.maxPuntaje) {
