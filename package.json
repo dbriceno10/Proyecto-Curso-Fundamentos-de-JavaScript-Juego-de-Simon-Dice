@@ -1,0 +1,24 @@
+{
+  "name": "proyecto-curso-fundamentos-de-javascript-juego-de-simon-dice",
+  "version": "1.0.0",
+  "description": "Juego simon says, utilizando asincronismo de javascript, promesas y clases",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dbriceno10/Proyecto-Curso-Fundamentos-de-JavaScript-Juego-de-Simon-Dice.git"
+  },
+  "keywords": [
+    "promises",
+    "javascript",
+    "class"
+  ],
+  "author": "Daniel Briceño <daniel.b100726@gmail.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/dbriceno10/Proyecto-Curso-Fundamentos-de-JavaScript-Juego-de-Simon-Dice/issues"
+  },
+  "homepage": "https://github.com/dbriceno10/Proyecto-Curso-Fundamentos-de-JavaScript-Juego-de-Simon-Dice#readme"
+}
