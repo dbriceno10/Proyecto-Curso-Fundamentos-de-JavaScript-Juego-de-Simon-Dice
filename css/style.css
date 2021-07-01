@@ -10,6 +10,10 @@
     --just-white: #fff;
     --soft-orange: #FFE9D5;
     --off-white: #FAF8F7;
+    --akaya: 'Akaya Kanadaka', italic;
+    --monserrat: 'Montserrat', sans-serif;
+    --roboto: 'Roboto', sans-serif;
+    --yellowtail: 'Yellowtail', italic;
 }
 * {
     margin: 0;
@@ -42,7 +46,7 @@ header {
     text-align: center;
     min-width: 320px;
     /* height: 150px; */
-    height: 120px;
+    /* height: 120px; */
     font-family: "Roboto", sans-serif;
     font-size: bold;
     line-height: 1.8rem;
@@ -240,10 +244,50 @@ main {
     border: none;
     box-shadow: 10px 4px 8px inset rgba(0, 0, 0, 0.3);
     border-radius: 100px;
-    font-size: bold;
+    font-size: 4rem;
+    font-weight: bold;
     line-height: 2.6rem;
     /* box-shadow: inset 5px 10px 4px 0px rgba(250, 250, 250, .2),
     inset -8px -5px 4px 0px rgba(250, 250, 250, .2); */
+    z-index: 2;
+    font-family: var(--roboto);
+}
+
+.counter {
+    position: absolute;
+    /* width: 80px;
+    height: 80px;
+    top: calc(50% - 40px );
+    left: calc(50% - 40px); */
+    width: 60px;
+    height: 60px;
+    top: calc(50% - 30px );
+    left: calc(50% - 30px);
+    border: none;
+    border-radius: 100%;
+    background-color: var(--off-white);
+    z-index: 1;
+    box-shadow: inset 2px 2px 2px 0px rgba(0, 0, 0, 0.2),
+    inset -2px -5px 2px 0px rgba(0, 0, 0, 0.2);
+    font-size: 2rem;
+
+}
+@media (min-width: 930px) {
+    .counter {
+        width: 80px;
+        height: 80px;
+        top: calc(50% - 40px );
+        left: calc(50% - 40px);
+    }
+}
+
+@media (max-width: 600px) {
+    .counter {
+        width: 50px;
+        height: 50px;
+        top: calc(50% - 25px );
+    left: calc(50% - 25px);
+    }
 }
 
 .btn-start:hover {
@@ -316,4 +360,29 @@ footer p #autor {
 footer p a {
     text-decoration: none;
     color:black;
+}
+header div .logo {
+    /* margin-top: 100px; */
+    width: 300px;
+}
+
+header section h1 {
+    font-family: var(--akaya);
+    background-color: rgb(137, 180, 71);
+    display: inline-block;
+    padding: 20px;
+    border-radius: 16px;
+    font-size: 3rem;
+}
+
+header section h2 {
+    font-size: 2.5rem;
+    margin: 10px;
+    font-family: var(--akaya);
+}
+
+header section div select {
+    font-family: var(--roboto);
+    margin: 20px;
+    font-size: 1.8rem;
 }

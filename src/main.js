@@ -8,13 +8,20 @@ const nota_mi = document.getElementById('sound_mi')
 const nota_fa = document.getElementById('sound_fa')
 const btnEmpezar = document.getElementById("btnEmpezar")
 const puntaje = document.getElementById("puntos")
-let item = localStorage.getItem("puntos")
+const item = localStorage.getItem("puntos")
+const counter = document.getElementById("counter")
+let c1 = 0
 puntaje.innerHTML = item
 
-capturar = () => {
+const capturar = () => {
     const niv = parseInt(document.getElementById("level").value)
     return niv
 }
+
+// const pointCounter = () => {
+//     let counter
+// }
+
 let ultimo_Nivel
 class Juego {
     constructor() {
@@ -159,6 +166,9 @@ class Juego {
         const numeroColor = this.transformarColorANumero(nombreColor)
         this.iluminarColor(nombreColor)
         this.sonidoDeColor(nombreColor)
+        c1 = c1 + 1
+        counter.innerHTML=""
+        counter.innerHTML=c1
         if (numeroColor === this.secuencia[this.subNivel]) {//verificar si el color elegido es igual al del primer subnivel
             this.subNivel++
             this.puntos++
@@ -208,8 +218,11 @@ class Juego {
             swal("!Felicitaciones, ganas el juego¡", `Tu puntucación: ${this.puntos}`,"./fonts/logo-win_the_game.png")
             .then(this.inicializar)
         }
+        c1 = 0
+        counter.innerHTML = 0
     }
     perdioElJuego() {
+        
         //swal("Platzi", "Lo siento, perdiste el juego", "error")
         if (this.puntos > this.maxPuntaje) {
             localStorage.setItem('puntos', this.puntos)
@@ -219,6 +232,8 @@ class Juego {
             this.eliminarEventosClick()
             this.inicializar()
         })
+        c1 = 0
+        counter.innerHTML = 0
     }
 }
 

@@ -2,3 +2,18 @@
     width: 350px;
     height: 350px;
 }
+
+header section h1 {
+    /* font-size: ; */
+}
+
+/* .counter {
+    width: 60px;
+    height: 60px;
+    top: calc(50% - 30px );
+    left: calc(50% - 30px);
+    width: 80px;
+    height: 80px;
+    top: calc(50% - 40px );
+    left: calc(50% - 40px);
+} */
