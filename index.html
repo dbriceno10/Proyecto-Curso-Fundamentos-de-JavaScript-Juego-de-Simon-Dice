@@ -13,21 +13,13 @@
     <link rel="stylesheet" href="./css/style.css">
     <link rel="stylesheet" href="./css/tablet.css" media="(min-width: 600px)">
     <link rel="stylesheet" href="./css/tablet2.css" media="(min-width: 930px)">
-    <!--Version de githud pages-->
 </head>
 <body>
     <header>
         <div>
             <img class="logo" src="./fonts/simon-says-logo.png" alt="simo says logo" title="simon says logo">
         </div>
-        <!-- <section class="puntacion">
-            <div>
-                <h1>Su Puntuación más alta: <span id="puntos">0</span></h1>
-                <h2>Juego de Simón Dice</h2>
-            </div>
-        </section> -->
-        <section><!--Aquí iba la clase dificultad-->
-            <!-- <h1>Juego de Simón Dice</h1> -->
+        <section>
             <h1>Su Puntuación más alta: <span id="puntos">0</span></h1>
             <h2> Elije la Dificultad</h2>
             <div>
@@ -45,36 +37,15 @@
         </section>
     </header>
     <main>
-        <section>
-            <!-- <div>
-                <h1>Su Puntuación más alta: <span id="puntos">0</span></h1>
-            </div> -->
+        <section class="gameboard">
+            <div id="verde" class="color verde left" data-color="verde"></div>
+            <div id="rojo" class="color rojo right" data-color="rojo"></div>
+            <div id="amarillo" class="color amarillo left" data-color="amarillo"></div>
+            <div id="azul" class="color azul right" data-color="azul"></div>
+            <button id="btnEmpezar" class="btn-start" onclick="empezarJuego(), capturar()">Go!</button>
+            <button class="counter" id="counter">0</button>
         </section>
-        <section id="dificultad">
-            <!-- <h2>Elije la Dificultad</h2>
-            <div>
-                    <select name="level" id="level">
-                    <option value="5">Fácil: 5 Niveles</option>
-                    <option value="10"><li>Normal: 10 Niveles</li></option>
-                    <option value="15">Medio: 15 Niveles</option>
-                    <option value="25">Difícil: 25 Niveles</option>
-                    <option value="40">Experto: 40 Niveles</option>
-                    <option value="50">Épico: 50 Niveles</option>
-                    <option value="100">Legendario 100 Niveles</option>
-                    <option value="999">Supervivencia: 999 Niveles</option>
-                </select>
-                >
-            </div> -->
-        </section>
-        <div class="gameboard">
-                <div id="amarillo" class="color amarillo left" data-color="amarillo"></div>
-                <div id="azul" class="color azul right" data-color="azul"></div>
-                <div id="rojo" class="color rojo left" data-color="rojo"></div>
-                <div id="verde" class="color verde right" data-color="verde"></div>
-                <button id="btnEmpezar" class="btn-start" onclick="empezarJuego(), capturar()">Go!</button>
-                <button class="counter" id="counter">0</button>
-            </div>
-            
+
         <section>
             <audio id="sound_do" src="./audio/do.wav"></audio>
             <audio id="sound_re" src="./audio/re.wav"></audio>
@@ -83,18 +54,11 @@
         </section>
     </main>
 
-    <!-- <footer>
-        <div>
-            <p id="autor"><b>Hecho por Daniel Briceño en marzo de 2020</b></p>
-            <p><b>Correo:</b> daniel.b100726@gmail.com</p>
-            <p><a href="https://github.com/dbriceno10" title="Github"><b>Github:</b></a></p>
-            <p><a href="https://www.linkedin.com/in/daniel-alejandro-687539137/" title="Linkedin"><b>Linkedin</b></a></p>
-        </div>
-    </footer> -->
     <footer>
         <a href="https://www.linkedin.com/in/daniel-alejandro-687539137/" target="__blank"><img src="./fonts/linkedin.png" alt="linkedin" title="linkedin"></a>
         <a href="https://github.com/dbriceno10" target="__blank"><img src="./fonts/github (3).png" alt="github" title="github"></a>
     </footer>
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js"></script>
     <script src="./src/main.js"></script>
 </body>
