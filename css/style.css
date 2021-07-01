@@ -184,7 +184,8 @@ main {
 }
 
 .azul.light {
-    background-color: #397fc0;
+    /* background-color: #397fc0; */
+    background-color: #72a8db;
     border-radius: 100%;
     box-shadow: inset -5px -10px 15px 0px #0a62b3,
     inset 8px 5px 4px 0px #0a62b3,
@@ -201,7 +202,8 @@ main {
 }
 
 .rojo.light {
-    background-color: #fd4c3f;
+    /* background-color: #fd4c3f; */
+    background-color: #f8665b;
     border-radius: 100%;
     box-shadow: inset -5px 10px 15px 0px #8e150c,
     inset 8px -5px 4px 0px #8e150c,
