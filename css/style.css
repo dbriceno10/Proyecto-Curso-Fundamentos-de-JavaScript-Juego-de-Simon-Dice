@@ -33,8 +33,9 @@ body {
     /* display: flex; */
     /* align-items: center; */
     height: 100vh;
-    background-color: var(--black);
-
+    /* background-color: var(--black); */
+    background-image: url("../fonts/carbon_fibre.png");
+    background-repeat: repeat;
 }
 
 header {
@@ -83,8 +84,9 @@ header section h2 {
 
 #level {
     /* font-family: "Roboto", sans-serif;
-    font-size: bold;
-    line-height: 2.6rem; */
+    font-size: bold;*/
+    line-height: 2.6rem; 
+    font-family: var(--roboto);
     border: none;
     /* box-shadow: 10px 4px 8px rgba(0, 0, 0, 0.3); */
     box-shadow: inset  0px 2px 4px rgba(255, 255, 255, 1);
@@ -110,7 +112,9 @@ main {
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center; */
-    background-color: var(--black);
+    /* background-color: var(--black); */
+    /* background-image: url("../fonts/icomoon.svg"); */
+    /* background-repeat: repeat; */
     margin: 0 auto;
 }
 .gameboard {
@@ -138,7 +142,8 @@ main {
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center; */
-    background-color: var(--warm-black);
+    /* background-color: var(--warm-black); */
+    background-image: url("../fonts/micro_carbon.png");
 }
 
 .color {
@@ -270,6 +275,7 @@ main {
     box-shadow: inset 2px 2px 2px 0px rgba(0, 0, 0, 0.2),
     inset -2px -5px 2px 0px rgba(0, 0, 0, 0.2);
     font-size: 2rem;
+    font-family: var(--monserrat);
 
 }
 @media (min-width: 930px) {
@@ -363,21 +369,25 @@ footer p a {
 }
 header div .logo {
     /* margin-top: 100px; */
-    width: 300px;
+    width: 200px;
 }
 
 header section h1 {
+    /* font-family: var(--roboto) ; */
     font-family: var(--akaya);
-    background-color: rgb(137, 180, 71);
+    /* background-color: rgb(137, 180, 71); */
     display: inline-block;
-    padding: 20px;
+    padding: 10px;
     border-radius: 16px;
-    font-size: 3rem;
+    font-size: 2.5rem;
+    background-image: url("../fonts/micro_carbon.png");
+    color: var(--just-white);
 }
 
 header section h2 {
-    font-size: 2.5rem;
-    margin: 10px;
+    font-size: 2.4rem;
+    /* margin-bottom: 10px; */
+    margin-top: 20px;
     font-family: var(--akaya);
 }
 

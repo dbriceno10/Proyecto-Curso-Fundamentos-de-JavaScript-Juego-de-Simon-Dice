@@ -10,19 +10,14 @@ const btnEmpezar = document.getElementById("btnEmpezar")
 const puntaje = document.getElementById("puntos")
 const item = localStorage.getItem("puntos")
 const counter = document.getElementById("counter")
-let c1 = 0
+let c1 = 0 // contador para ir llevando la puntuación en tiempo real
+let ultimo_Nivel
 puntaje.innerHTML = item
 
 const capturar = () => {
     const niv = parseInt(document.getElementById("level").value)
     return niv
 }
-
-// const pointCounter = () => {
-//     let counter
-// }
-
-let ultimo_Nivel
 class Juego {
     constructor() {
         this.inicializar = this.inicializar.bind(this)
@@ -237,6 +232,6 @@ class Juego {
     }
 }
 
-function empezarJuego() {
+const empezarJuego = () => {
     window.juego = new Juego()
 }
