@@ -1,65 +1,76 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="shortcut icon" href="./fonts/simon.svg" type="image/x-icon">
-    <title>Simon Says</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Akaya+Kanadaka&family=Montserrat&family=Roboto&family=Yellowtail&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="./css/style.css">
-    <link rel="stylesheet" href="./css/tablet.css" media="(min-width: 600px)">
-    <link rel="stylesheet" href="./css/tablet2.css" media="(min-width: 930px)">
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="shortcut icon" href="./fonts/simon.svg" type="image/x-icon">
+  <title>Simon Says</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Akaya+Kanadaka&family=Montserrat&family=Roboto&family=Yellowtail&display=swap"
+    rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="./css/style.css">
+  <link rel="stylesheet" href="./css/tablet.css" media="(min-width: 600px)">
+  <link rel="stylesheet" href="./css/tablet2.css" media="(min-width: 930px)">
 </head>
+
 <body>
-    <header>
-        <div>
-            <img class="logo" src="./fonts/simon-says-logo.png" alt="simo says logo" title="simon says logo">
-        </div>
-        <section>
-            <h1>Su Puntuación más alta: <span id="puntos">0</span></h1>
-            <h2> Elije la Dificultad</h2>
-            <div>
-                    <select name="level" id="level">
-                    <option value="5">Fácil: 5 Niveles</option>
-                    <option value="10"><li>Normal: 10 Niveles</li></option>
-                    <option value="15">Medio: 15 Niveles</option>
-                    <option value="25">Difícil: 25 Niveles</option>
-                    <option value="40">Experto: 40 Niveles</option>
-                    <option value="50">Épico: 50 Niveles</option>
-                    <option value="100">Legendario 100 Niveles</option>
-                    <option value="999">Supervivencia: 999 Niveles</option>
-                    </select>
-            </div>
-        </section>
-    </header>
-    <main>
-        <section class="gameboard">
-            <div id="verde" class="color verde left" data-color="verde"></div>
-            <div id="rojo" class="color rojo right" data-color="rojo"></div>
-            <div id="amarillo" class="color amarillo left" data-color="amarillo"></div>
-            <div id="azul" class="color azul right" data-color="azul"></div>
-            <button id="btnEmpezar" class="btn-start" onclick="empezarJuego(), capturar()">Go!</button>
-            <button class="counter" id="counter">0</button>
-        </section>
+  <header>
+    <div>
+      <img class="logo" src="./fonts/simon-says-logo.png" alt="simo says logo" title="simon says logo">
+    </div>
+    <section>
+      <h1>Su Puntuación más alta: <span id="puntos">0</span></h1>
+      <h2> Elije la Dificultad</h2>
+      <div>
+        <select name="level" id="level">
+          <option value="5">Fácil: 5 Niveles</option>
+          <option value="10">
+            <li>Normal: 10 Niveles</li>
+          </option>
+          <option value="15">Medio: 15 Niveles</option>
+          <option value="25">Difícil: 25 Niveles</option>
+          <option value="40">Experto: 40 Niveles</option>
+          <option value="50">Épico: 50 Niveles</option>
+          <option value="100">Legendario 100 Niveles</option>
+          <option value="999">Supervivencia: 999 Niveles</option>
+        </select>
+      </div>
+    </section>
+  </header>
+  <main>
+    <section class="gameboard">
+      <div id="verde" class="color verde left" data-color="verde"></div>
+      <div id="rojo" class="color rojo right" data-color="rojo"></div>
+      <div id="amarillo" class="color amarillo left" data-color="amarillo"></div>
+      <div id="azul" class="color azul right" data-color="azul"></div>
+      <button id="btnEmpezar" class="btn-start" onclick="empezarJuego(), capturar()">Go!</button>
+      <button class="counter" id="counter">0</button>
+    </section>
 
-        <section>
-            <audio id="sound_do" src="./audio/do.wav"></audio>
-            <audio id="sound_re" src="./audio/re.wav"></audio>
-            <audio id="sound_mi" src="./audio/mi.wav"></audio>
-            <audio id="sound_fa" src="./audio/fa.wav"></audio>
-        </section>
-    </main>
+    <section>
+      <audio id="sound_do" src="./audio/do.wav"></audio>
+      <audio id="sound_re" src="./audio/re.wav"></audio>
+      <audio id="sound_mi" src="./audio/mi.wav"></audio>
+      <audio id="sound_fa" src="./audio/fa.wav"></audio>
+    </section>
+  </main>
 
-    <footer>
-        <a href="https://www.linkedin.com/in/dbriceno10/" target="__blank"><img src="./fonts/linkedin.png" alt="linkedin" title="linkedin"></a>
-        <a href="https://github.com/dbriceno10" target="__blank"><img src="./fonts/github (3).png" alt="github" title="github"></a>
-    </footer>
+  <footer>
+    <a href="https://www.linkedin.com/in/dbriceno10/" target="__blank"><img src="./fonts/linkedin.png" alt="linkedin"
+        title="linkedin"></a>
+    <a href="https://github.com/dbriceno10" target="__blank"><img src="./fonts/github (3).png" alt="github"
+        title="github"></a>
+  </footer>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js"></script>
-    <script src="./src/main.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js"></script>
+  <script src="./src/main.js"></script>
 </body>
+
 </html>
