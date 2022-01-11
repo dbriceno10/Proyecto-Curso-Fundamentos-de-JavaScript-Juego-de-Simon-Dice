@@ -12,7 +12,7 @@ const item = localStorage.getItem("puntos");
 const counter = document.getElementById("counter");
 let c1 = 0; // contador para ir llevando la puntuación en tiempo real
 let ultimo_Nivel;
-puntaje.innerHTML = item;
+puntaje.innerHTML = item ? item : "0";
 
 const capturar = () => {
   const niv = parseInt(document.getElementById("level").value);
@@ -58,7 +58,7 @@ class Juego {
       btnEmpezar.classList.add("hide");
     }
     ultimo_Nivel = capturar();
-    console.log(`El último nivel es ${ultimo_Nivel}`);
+    // console.log(`El último nivel es ${ultimo_Nivel}`);
   }
 
   generarSecuencia() {
